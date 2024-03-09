@@ -6,7 +6,7 @@ subtitle: Ph.D. Candidate in the <a href="https://cs.uwaterloo.ca/">David R. Che
 
 profile:
   align: right
-  image: ben-ireland-2017.jpg
+  image: ben-sweden-2022.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>first.last@uwaterloo.ca</p>
