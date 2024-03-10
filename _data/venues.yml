@@ -1,6 +1,11 @@
-"AJP":
-  url: https://aapt.scitation.org/journal/ajp
-  color: "#00369f"
+"IJCAI":
+  url: https://www.ijcai.org/
 
-"PhysRev":
-  url: https://journals.aps.org/
+"AI4SG":
+  url: https://aiforsocialgood.github.io/neurips2019/
+
+"GAIW":
+  url: https://preflib.github.io/gaiw2024/
+  
+"AAMAS":
+  url: https://preflib.github.io/gaiw2024/
