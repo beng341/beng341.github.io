@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I will be at AAMAS in Auckland to run a workshop, and present one extended abstract and at least one workshop paper! (it will be a busy week 😅)
+I will be at AAMAS in New Zealand with an extended abstract, 2 workshop papers, and to run the SCaLA workshop (it will be a busy week 😅).

@@ -80,24 +80,6 @@ abbr={GAIW},
 pdf={Armstrong and Larson - On the Limited Applicability of Liquid Democracy.pdf},
 }
 
-@article{Armstrong_Larson_2024,
-title={Liquid Democracy for Low-Cost Ensemble Pruning},
-url={http://arxiv.org/abs/2401.17443},
-abstract={We argue that there is a strong connection between ensemble learning and a delegative voting paradigm - liquid democracy – that can be leveraged to reduce ensemble training costs. We present an incremental training procedure that identifies and removes redundant classifiers from an ensemble via delegation mechanisms inspired by liquid democracy. Through both analysis and extensive experiments we show that this process greatly reduces the computational cost of training compared to training a full ensemble. By carefully selecting the underlying delegation mechanism, weight centralization in the classifier population is avoided, leading to higher accuracy than some boosting methods. Furthermore, this work serves as an exemplar of how frameworks from computational social choice literature can be applied to problems in nontraditional domains.},
-note={To appear as Extended Abstract at AAMAS 2024},
-number={arXiv:2401.17443},
-publisher={arXiv},
-author={Armstrong, Ben and Larson, Kate},
-year={2024},
-month={1},
-language={en},
-selected={true},
-abbr={AAMAS},
-pdf={Armstrong and Larson - 2024 - Liquid Democracy for Low-Cost Ensemble Pruning.pdf},
-arxiv={2401.17443}
-}
-
-
 @inproceedings{Alouf-Heffetz_Armstrong_Larson_Talmon_2022,
 address={Vienna, Austria},
 title={How Should We Vote? A Comparison of Voting Systems within Social Networks},
@@ -116,3 +98,61 @@ selected={true},
 abbr={IJCAI},
 pdf={Alouf-Heffetz et al. - 2022 - How Should We Vote A Comparison of Voting Systems.pdf},
 }
+
+@article{Armstrong_Larson_2024,
+title={Liquid Democracy for Low-Cost Ensemble Pruning},
+url={http://arxiv.org/abs/2401.17443},
+abstract={We argue that there is a strong connection between ensemble learning and a delegative voting paradigm - liquid democracy – that can be leveraged to reduce ensemble training costs. We present an incremental training procedure that identifies and removes redundant classifiers from an ensemble via delegation mechanisms inspired by liquid democracy. Through both analysis and extensive experiments we show that this process greatly reduces the computational cost of training compared to training a full ensemble. By carefully selecting the underlying delegation mechanism, weight centralization in the classifier population is avoided, leading to higher accuracy than some boosting methods. Furthermore, this work serves as an exemplar of how frameworks from computational social choice literature can be applied to problems in nontraditional domains.},
+note={Extended Abstract. Full version available on ArXiV.},
+number={arXiv:2401.17443},
+publisher={23rd International Conference on Autonomous Agents and Multi-Agent Systems},
+author={Armstrong, Ben and Larson, Kate},
+year={2024},
+month={1},
+language={en},
+selected={true},
+abbr={AAMAS},
+pdf={Armstrong and Larson - 2024 - Liquid Democracy for Low-Cost Ensemble Pruning.pdf},
+arxiv={2401.17443}
+}
+
+
+@article{Armstrong_Alouf-Heffetz_Talmon_2024,
+title={Optimizing Viscous Democracy},
+abstract={Viscous democracy is a generalization of liquid democracy, a social choice framework in which voters may transitively delegate their votes. In viscous democracy, a "viscosity" factor decreases the weight of a delegation the further it travels, reducing the chance of excessive weight flowing between ideologically misaligned voters. We demonstrate that viscous democracy often significantly improves the quality of group decision-making over liquid democracy. We first show that finding optimal delegations within a viscous setting is NP-hard. However, simulations allow us to explore the practical effects of viscosity. Across social network structures, competence distributions, and delegation mechanisms we find high viscosity reduces the chance of “super-voters” attaining large amounts of weight and increases the number of voters that are able to affect the outcome of elections. This, in turn, improves group accuracy as a whole. As a result, we argue that viscosity should be considered a core component of liquid democracy.},
+author={Armstrong, Ben and Alouf-Heffetz, Shiri and Talmon, Nimrod},
+journal={Games, Agents, Incentives Workshop at the 23rd International Conference on Autonomous Agents and Multi-Agent Systems},
+year={2024},
+month={5},
+language={en},
+abbr={GAIW},
+pdf={GAIW 2024 - Optimizing Viscous Democracy.pdf},
+}
+
+
+@article{Blair_Armstrong_Larson-CAI-2024,
+title={Liquid Ensemble Selection for Continual Learning},
+abstract={Continual learning aims to enable machine learning models to acquire new knowl- edge from a shifting data distribution without forgetting what has already been learned. Such shifting distributions can be broken into disjoint subsets of related examples called contexts; training each ensemble member on a different context makes it possible for the ensemble as a whole to achieve much higher accuracy with less forgetting than a naive model. We address the problem of selecting which models within an ensemble should learn on any given data and which should predict. By drawing on work from delegative voting we develop an algorithm for using delegation to dynamically select which mod- els in an ensemble are active. We explore various delegation methods and performance metrics, ultimately finding that delegation can provide a significant performance boost over naive learning in the face of distribution shifts.},
+author={Blair, Carter and Armstrong, Ben and Larson, Kate},
+journal={37th Canadian Conference on Artificial Intelligence},
+year={2024},
+month={5},
+note={Note: SCaLA version contains more experimental results due to length limits.},
+language={en},
+abbr={Canadian AI},
+pdf={CAI 2024 - Liquid Ensemble Selection for Continual Learning.pdf},
+}
+
+
+@article{Blair_Armstrong_Larson-SCaLA-2024,
+title={Liquid Ensemble Selection for Continual Learning},
+abstract={Continual learning aims to enable machine learning models to acquire new knowl- edge from a shifting data distribution without forgetting what has already been learned. Such shifting distributions can be broken into disjoint subsets of related examples called contexts; training each ensemble member on a different context makes it possible for the ensemble as a whole to achieve much higher accuracy with less forgetting than a naive model. We address the problem of selecting which models within an ensemble should learn on any given data and which should predict. By drawing on work from delegative voting we develop an algorithm for using delegation to dynamically select which mod- els in an ensemble are active. We explore various delegation methods and performance metrics, ultimately finding that delegation can provide a significant performance boost over naive learning in the face of distribution shifts.},
+author={Blair, Carter and Armstrong, Ben and Larson, Kate},
+journal={Social Choice and Learning Algorithms Workshop at the 23rd International Conference on Autonomous Agents and Multi-Agent Systems},
+year={2024},
+month={5},
+language={en},
+abbr={SCaLA},
+pdf={SCaLA 2024 - Liquid Ensemble Selection for Continual Learning.pdf},
+}
+
