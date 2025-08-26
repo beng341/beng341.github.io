@@ -17,7 +17,6 @@ social: true # includes social icons at the bottom of the page
 ---
 
 I am interested in experimental connections between social choice and machine learning.
-<!-- More generally, I study a variety of topics to do with social choice, machine learning, multiagent systems, game theory, and computational social science.-->
 
 Currently I am exploring how (and whether!) machine learning can be useful for learning about voting rules. I'm particularly focused on what ML models can teach us about existing rules and how they can be used to create new rules.
 
