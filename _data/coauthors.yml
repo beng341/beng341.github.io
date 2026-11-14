@@ -1,34 +1,45 @@
-"adams":
-  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
+"larson":
+  - firstname: ["Kate"]
+    url: https://cs.uwaterloo.ca/~klarson/index.html
 
-"podolsky":
-  - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
-    url: https://en.wikipedia.org/wiki/Boris_Podolsky
+"mattei":
+  - firstname: ["Nicholas", "Nick"]
+    url: https://www.nickmattei.net/
 
-"rosen":
-  - firstname: ["Nathan", "N."]
-    url: https://en.wikipedia.org/wiki/Nathan_Rosen
+"shah":
+  - firstname: ["Nihar B.", "Nihar"]
+    url: https://www.cs.cmu.edu/~nihars/
 
-"bach":
-  - firstname: ["Johann Sebastian", "J. S."]
-    url: https://en.wikipedia.org/wiki/Johann_Sebastian_Bach
+"berker":
+  - firstname: ["Ratip Emin", "Emin"]
+    url: https://www.eminberker.com/
 
-  - firstname: ["Carl Philipp Emanuel", "C. P. E."]
-    url: https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach
+"conitzer":
+  - firstname: ["Vincent", "Vince"]
+    url: https://www.cs.cmu.edu/~conitzer/
 
-"przibram":
-  - firstname: ["Karl"]
-    url: https://link.springer.com/article/10.1007/s00016-019-00242-z
+"blair":
+  - firstname: ["Carter"]
+    url: https://cartgr.github.io/
 
-"schrodinger":
-  - firstname: ["Erwin"]
-    url: https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger
+"caiata":
+  - firstname: ["Josh", "Joshua"]
+    url: https://joshuacaiata.com/
 
-"lorentz":
-  - firstname: ["Hendrik Antoon"]
-    url: https://en.wikipedia.org/wiki/Hendrik_Lorentz
+"matone":
+  - firstname: ["Leo", "Leonardo"]
+    url: https://v993.github.io/LeonardoMatone/
 
-"planck":
-  - firstname: ["Max"]
-    url: https://en.wikipedia.org/wiki/Max_Planck
+"talmon":
+  - firstname: ["Nimrod"]
+    url: https://sites.google.com/view/zutot
+
+"grossi":
+  - firstname: ["Davide"]
+    url: https://davidegrossi.me/
+
+
+"lyon":
+  - firstname: ["Harper"]
+    url: https://harplyon.github.io/
+
