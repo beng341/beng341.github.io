@@ -1,11 +1,11 @@
 ---
-layout: cv
-permalink: /assets/pdf/strongarms_cv.pdf
+layout: page
 title: cv
+permalink: /cv/
 nav: true
 nav_order: 5
-cv_pdf: strongarms_cv.pdf
-description: This is a description of the page. You can modify it in '_pages/cv.md'. You can also change or remove the top pdf download button.
-toc:
-  sidebar: left
 ---
+
+<a href="{{ '/assets/pdf/strongarms_cv.pdf' | relative_url }}">Download PDF</a>
+
+<object data="{{ '/assets/pdf/strongarms_cv.pdf' | relative_url }}" type="application/pdf" width="100%" height="1000px"></object>
