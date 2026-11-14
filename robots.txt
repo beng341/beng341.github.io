@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://beng341.github.io/sitemap.xml
+Sitemap: https://benarmstrong.ca/sitemap.xml
