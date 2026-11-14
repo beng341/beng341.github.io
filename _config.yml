@@ -305,9 +305,26 @@ enable_publication_badges:
   dimensions: true # Dimensions badge (https://badge.dimensions.ai/)
   google_scholar: true # Google Scholar badge (https://scholar.google.com/intl/en/scholar/citations.html)
 
+# Publication types: each paper's `pub_type` field in papers.bib must match a `key` below.
+# `color` sets the badge background; the order of this list is the order used when
+# visitors sort the publications page by type.
+publication_types:
+  - key: conference
+    label: Conference
+    color: "#1f4e8c"
+  - key: journal
+    label: Journal
+    color: "#7a3e9d"
+  - key: workshop
+    label: Workshop
+    color: "#2e7d6b"
+  - key: preprint
+    label: Preprint
+    color: "#6c757d"
+
 # Filter out certain bibtex entry keywords used internally from the bib output
 filtered_bibtex_keywords:
-  [abbr, abstract, altmetric, arxiv, bibtex_show, blog, code, html, pdf, poster, preview, selected, slides, supp, video, website]
+  [abbr, abstract, altmetric, arxiv, bibtex_show, blog, code, html, pdf, poster, preview, pub_type, selected, slides, supp, tldr, venue_url, video, website]
 
 # Maximum number of authors to be shown for each publication (more authors are visible on click)
 max_author_limit: 3 # leave blank to always show all authors

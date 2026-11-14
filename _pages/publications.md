@@ -8,8 +8,26 @@ nav_order: 2
 ---
 
 <!-- _pages/publications.md -->
+<!-- Sort/filter controls: hidden until assets/js/publications.js runs; each type checkbox is shown only if a paper has that pub_type -->
+<div id="pub-controls" data-type-order="{{ site.publication_types | map: 'key' | join: ',' }}" style="display: none; margin-bottom: 1rem;">
+  <div>
+    Sort by:
+    <label style="margin: 0 0.5rem;"><input type="radio" name="pub-sort" value="year" checked> year</label>
+    <label style="margin: 0 0.5rem;"><input type="radio" name="pub-sort" value="type"> type</label>
+  </div>
+  <div>
+    Show:
+    {% for t in site.publication_types %}
+    <label class="pub-type-option" data-pub-type="{{ t.key }}" data-label="{{ t.label }}" style="display: none; margin: 0 0.5rem;"><input type="checkbox" value="{{ t.key }}" checked> <span class="badge" style="background-color: {{ t.color }}; color: white;">{{ t.label }}</span></label>
+    {% endfor %}
+    <label class="pub-type-option" data-pub-type="other" data-label="Other" style="display: none; margin: 0 0.5rem;"><input type="checkbox" value="other" checked> <span class="badge" style="background-color: var(--global-theme-color); color: white;">Other</span></label>
+  </div>
+</div>
+
 <div class="publications">
 
 {% bibliography %}
 
 </div>
+
+<script src="{{ '/assets/js/publications.js' | relative_url | bust_file_cache }}"></script>

@@ -20,7 +20,8 @@ A practical reference for maintaining this site (Jekyll + the al-folio theme, de
 | Update the CV                      | Replace `assets/pdf/strongarms_cv.pdf` (keep the same filename)  |
 | Add a new page / header link       | New file in `_pages/` with `nav: true` and a `nav_order`         |
 | Change name, email, social icons   | `_config.yml` (top section)                                      |
-| Add a colored badge link for a venue | `_data/venues.yml`                                             |
+| Set a paper's badge colour / link  | `pub_type` and `venue_url` fields in its `.bib` entry            |
+| Add or change a publication type   | `publication_types` in `_config.yml`                             |
 | Link co-author names to their sites | `_data/coauthors.yml`                                           |
 
 ### `_config.yml` — site-wide settings
@@ -70,7 +71,7 @@ Our paper has been accepted to <a href="https://example.com">Venue</a>!
 
 ### Publications — `_bibliography/papers.bib` + `assets/pdf/`
 
-The publications page (`_pages/publications.md`) just runs `{% bibliography %}`; everything comes from `papers.bib`, grouped by year, newest first.
+Everything on the publications page comes from `papers.bib`. `_pages/publications.md` runs `{% bibliography %}` (which lists papers grouped by year, newest first) and adds sort/filter controls above it (see "Publication types" below).
 
 To add a paper:
 
@@ -85,9 +86,12 @@ To add a paper:
   year={2026},
   month={12},
   abbr={NeurIPS},
+  pub_type={conference},
+  venue_url={https://neurips.cc/},
   pdf={NeurIPS-2026-DeepVoting.pdf},
   arxiv={2408.13630},
   abstract={...},
+  tldr={One or two plain-language sentences.},
   selected={true}
 }
 ```
@@ -101,13 +105,59 @@ How each field is used by the theme (`_layouts/bib.liquid`):
 | `booktitle`          | Venue line for `@inproceedings` entries.                                                                   |
 | `publisher`          | **Not displayed.** Don't put the venue here.                                                               |
 | `note`               | Shown as an extra line under the venue.                                                                    |
-| `abbr`               | Badge on the left. If it matches a key in `_data/venues.yml`, the badge becomes a link.                    |
+| `abbr`               | Text of the badge on the left (e.g. `NeurIPS`). No `abbr` means no badge.                                  |
+| `pub_type`           | Publication type, e.g. `conference`. Sets the badge colour and how the paper is sorted/filtered. Must match a `key` in `publication_types` in `_config.yml`; otherwise the paper counts as "Other" and the badge uses the default theme colour. |
+| `venue_url`          | Makes the badge a link to this URL. Omit it for a badge with no link.                                     |
 | `pdf`                | "PDF" button. Either a filename in `assets/pdf/` (must include `.pdf` and match exactly) or a full URL.    |
 | `arxiv`              | "arXiv" button (just the ID, e.g. `2408.13630`).                                                           |
 | `abstract`           | "Abs" button that expands the abstract.                                                                    |
+| `tldr`               | "TLDR" button that expands this short summary (works like the abstract; opening one closes the other).    |
 | `code`, `slides`, `poster`, `website`, `supp`, `html` | Extra buttons. `slides`/`poster`/`supp` can be filenames in `assets/pdf/` or URLs. |
 | `selected={true}`    | Paper also appears under "selected publications" on the homepage.                                         |
 | `bibtex_show={true}` | Adds a "Bib" button showing the BibTeX.                                                                    |
+
+Field names are case-sensitive and must be spelled exactly as above (`pub_type`, not `pubtype` or `type`; `type` is reserved by BibTeX).
+
+### Publication types (badge colours, sorting and filtering)
+
+The types are defined once in `_config.yml`:
+
+```yaml
+publication_types:
+  - key: conference      # the value you write in pub_type={...}
+    label: Conference    # shown on the checkbox and as the heading when sorting by type
+    color: "#1f4e8c"     # badge background (keep the quotes: # starts a YAML comment)
+  - key: journal
+    label: Journal
+    color: "#7a3e9d"
+  - key: workshop
+    label: Workshop
+    color: "#2e7d6b"
+  - key: preprint
+    label: Preprint
+    color: "#6c757d"
+```
+
+On the publications page, visitors can sort by **year** or by **type**, and untick checkboxes to hide types. A type's checkbox only appears if at least one paper has that `pub_type`. Papers with no `pub_type`, or one that isn't in the list, are grouped as **Other** (with their own checkbox). Without JavaScript, the page falls back to the plain list grouped by year.
+
+**To add a new type** (e.g. "thesis"):
+
+1. Add an entry to `publication_types` in `_config.yml`:
+   ```yaml
+     - key: thesis
+       label: Thesis
+       color: "#a0522d"
+   ```
+2. Set `pub_type={thesis}` on the relevant entries in `papers.bib`.
+3. Restart `bundle exec jekyll serve` (config changes need a restart).
+
+Related tasks:
+
+- **Change the order of types** when sorting by type: reorder the entries in `publication_types`. "Other" always comes last.
+- **Change a colour or label**: edit `color` / `label`. Dark colours work best, since the badge text is white.
+- **Rename or remove a type**: change or remove its entry *and* update every `pub_type={...}` that used it; otherwise those papers fall into "Other".
+
+The pieces behind this, in case you need to debug: `_layouts/bib.liquid` (badge, TLDR button, and the `data-pub-type` / `data-year` attributes on each paper), `_pages/publications.md` (the controls), `assets/js/publications.js` (sorting and filtering), and `assets/js/common.js` (Abs/TLDR/Bib toggles).
 
 **Deploy gotcha:** the deploy workflow only triggers on changes to `assets/**`, `*.md`, `*.yml`, `*.liquid`, `*.html`, `*.js`. A commit that *only* changes `papers.bib` will not redeploy. Either commit it together with the PDF / a news item, or trigger the "Deploy site" workflow manually from the repo's Actions tab ("Run workflow").
 
