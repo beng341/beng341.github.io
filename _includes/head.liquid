@@ -3,13 +3,13 @@
 
 <!-- Bootstrap & MDB -->
 <link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url | bust_file_cache }}">
-<!-- <link rel="stylesheet" href="{{ '/assets/css/mdb.min.css' | relative_url | bust_file_cache }}"> -->
-<link
+<link rel="stylesheet" href="{{ '/assets/css/mdb.min.css' | relative_url | bust_file_cache }}"> -->
+<!-- <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/mdbootstrap@{{ site.mdb.version }}/css/mdb.min.css"
   integrity="{{ site.mdb.integrity.css }}"
   crossorigin="anonymous"
->
+> -->
 
 <!-- Bootstrap Table -->
 {% if page.pretty_table %}
@@ -18,11 +18,13 @@
 
 <!-- Fonts & Icons -->
 <link defer rel="stylesheet" href="{{ '/assets/css/academicons.min.css' | relative_url | bust_file_cache }}">
+<!-- Text fonts are self-hosted in assets/fonts (see _sass/_fonts.scss). Preload the body font so text renders in it as early as possible. -->
 <link
-  defer
-  rel="stylesheet"
-  type="text/css"
-  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap"
+  rel="preload"
+  href="{{ '/assets/fonts/cormorant-garamond-v21-latin-500.woff2' | relative_url }}"
+  as="font"
+  type="font/woff2"
+  crossorigin
 >
 
 <!-- Code Syntax Highlighting -->

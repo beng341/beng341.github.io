@@ -298,6 +298,8 @@ scholar:
   query: "@*"
   group_by: year
   group_order: descending
+  sort_by: year,month
+  order: descending
 
 # Display different badges withs stats for your publications
 enable_publication_badges:
@@ -307,7 +309,8 @@ enable_publication_badges:
 
 # Publication types: each paper's `pub_type` field in papers.bib must match a `key` below.
 # `color` sets the badge background; the order of this list is the order used when
-# visitors sort the publications page by type.
+# visitors sort the publications page by type. A type with `filter: false` only sets a
+# badge color: it gets no "Show" checkbox, and its papers sort and filter as "Other".
 publication_types:
   - key: conference
     label: Conference
@@ -321,13 +324,17 @@ publication_types:
   - key: preprint
     label: Preprint
     color: "#6c757d"
+  - key: thesis
+    label: Thesis
+    color: "#3f8f3f"
+    filter: false
 
 # Filter out certain bibtex entry keywords used internally from the bib output
 filtered_bibtex_keywords:
   [abbr, abstract, altmetric, arxiv, bibtex_show, blog, code, html, pdf, poster, preview, pub_type, selected, slides, supp, tldr, venue_url, video, website]
 
 # Maximum number of authors to be shown for each publication (more authors are visible on click)
-max_author_limit: 5 # leave blank to always show all authors
+max_author_limit: 8 # leave blank to always show all authors
 more_authors_animation_delay: 10 # more authors are revealed on click using animation; smaller delay means faster animation
 
 # Enables publication thumbnails. If disabled, none of the publications will display thumbnails, even if specified in the bib entry.

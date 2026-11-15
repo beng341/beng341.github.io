@@ -35,6 +35,10 @@
           >{% if entry.venue_url %}<a href="{{ entry.venue_url }}">{{ entry.abbr }}</a>{% else %}{{ entry.abbr }}{% endif %}</abbr
         >
       {% endif %}
+      {% if entry.year %}
+        <!-- Year under the badge on wider screens; on narrow screens it follows the venue instead -->
+        <div class="pub-year d-none d-sm-block">{{ entry.year }}</div>
+      {% endif %}
     </div>
   {% endif %}
 
@@ -127,31 +131,33 @@
       {% endif %}
     </div>
 
-    <!-- Journal/Book title and date -->
+    <!-- Venue. Notes. Year. (each part followed by a period; the year only appears here on narrow screens, or when the badge column is disabled) -->
     {% assign proceedings = 'inproceedings,incollection' | split: ',' %}
     {% assign thesis = 'thesis,mastersthesis,phdthesis' | split: ',' %}
+    {% assign venue = '' %}
     {% if entry.type == 'article' %}
-      {% capture entrytype %}<em>{{entry.journal}}</em>{% endcapture %}
+      {% assign venue = entry.journal | strip %}
     {% elsif proceedings contains entry.type %}
-      {% capture entrytype %}<em>In {{entry.booktitle}}</em> {% endcapture %}
+      {% assign venue = entry.booktitle | strip %}
+      {% if venue != '' %}
+        {% assign venue = venue | prepend: 'In ' %}
+      {% endif %}
     {% elsif thesis contains entry.type %}
-      {% capture entrytype %}<em>{{entry.school}}</em> {% endcapture %}
-    {% else %}
-      {% capture entrytype %}{% endcapture %}
+      {% assign venue = entry.school | strip %}
     {% endif %}
-    {% if entry.month %}
-      {% capture entrymonth %}{{ " " }}{{ entry.month | capitalize }}{% endcapture %}
-    {% endif %}
-    {% if entry.year %}
-      {% capture entryyear %}{{ " " }}{{entry.year}}{% endcapture %}
-    {% endif %}
-    {% assign entrytype_text = entrytype | strip_html | strip %}
-    {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
+    {% assign note = entry.note | strip %}
     <div class="periodical">
-      {{ periodical | strip }}
-    </div>
-    <div class="periodical">
-      {{ entry.note | strip }}
+      {% if venue != '' %}
+        {% assign last_char = venue | strip_html | strip | slice: -1 %}
+        <em>{{ venue }}</em>{% unless last_char == '.' %}.{% endunless %}
+      {% endif %}
+      {% if note != '' %}
+        {% assign last_char = note | strip_html | strip | slice: -1 %}
+        {{ note }}{% unless last_char == '.' %}.{% endunless %}
+      {% endif %}
+      {% if entry.year %}
+        <span{% if site.enable_publication_thumbnails %} class="d-sm-none"{% endif %}>{{ entry.year }}.</span>
+      {% endif %}
     </div>
 
     <!-- Links/Buttons -->

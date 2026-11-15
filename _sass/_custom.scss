@@ -1,0 +1,38 @@
+/*******************************************************************************
+ * Site-specific typography (fonts are self-hosted; see _sass/_fonts.scss)
+ ******************************************************************************/
+
+// Body text everywhere, including authors and venues on papers
+body {
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+// Section headings ("news", "selected publications", year headings) and page titles
+h1,
+h2,
+h3 {
+  font-family: "Cormorant SC", "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+// Paper titles
+.publications ol.bibliography li .title {
+  font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+}
+
+// Homepage subtitle box
+.post-description.about-subtitle {
+  font-size: 1rem;                              // was 0.875rem
+  background-color: rgba(128, 128, 128, 0.1);   // grey at 10% opacity
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+}
