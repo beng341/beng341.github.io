@@ -1,0 +1,20 @@
+{% comment %}
+  One section of the interests page: a thumbnail beside a block of markdown text.
+  Parameters:
+    title   - section heading (also used to make an anchor, e.g. /interests/#community-building)
+    image   - path to the thumbnail, e.g. assets/img/interests/placeholder.png
+    alt     - alt text for the thumbnail: describes the image for screen readers and is shown
+              only if the image fails to load (it does not appear on hover)
+    caption - optional caption shown under the thumbnail (plain text); leave out for no caption
+    side    - "left" (default) or "right": which side the thumbnail sits on. On narrow screens the thumbnail is always on top.
+    text    - markdown content for the section (write it in a capture block)
+{% endcomment %}
+<div class="row align-items-center mb-5{% if include.side == 'right' %} flex-md-row-reverse{% endif %}">
+  <div class="col-md-4 mb-3 mb-md-0">
+    {% include figure.liquid path=include.image alt=include.alt caption=include.caption class="img-fluid rounded z-depth-1" zoomable=true %}
+  </div>
+  <div class="col-md-8">
+    <h2 id="{{ include.title | slugify }}">{{ include.title }}</h2>
+    {{ include.text | markdownify }}
+  </div>
+</div>
